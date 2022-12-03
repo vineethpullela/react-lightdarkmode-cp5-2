@@ -3,35 +3,23 @@ import {Component} from 'react'
 
 class LightDarkMode extends Component {
   state = {
-    mode: 'light',
-    text: 'Light Mode',
+    mode: true,
   }
 
   changeMode = () => {
-    this.setState(prevState => {
-      if (prevState.mode === 'light') {
-        return {mode: 'dark', text: 'Light Mode'}
-      }
-      return {mode: 'light', text: 'Dark Mode'}
-    })
+    this.setState(prevState => ({mode: !prevState.mode}))
   }
 
   render() {
-    const {mode, text} = this.state
+    const {mode} = this.state
+    const modeClassName = mode ? 'lightMode-container' : 'darkMode-container'
+    const headingClassName = mode ? 'light-mode-heading' : 'dark-mode-heading'
+    const text = mode ? 'Light Mode' : 'Dark Mode'
+
     return (
       <div className="bg-container">
-        <div
-          className={
-            mode === 'light' ? 'lightMode-container' : 'darkMode-container'
-          }
-        >
-          <h1
-            className={
-              mode === 'light' ? 'light-mode-heading' : 'dark-mode-heading'
-            }
-          >
-            Click To Change Mode
-          </h1>
+        <div className={modeClassName}>
+          <h1 className={headingClassName}>Click To Change Mode</h1>
           <button className="button" type="button" onClick={this.changeMode}>
             {text}
           </button>
