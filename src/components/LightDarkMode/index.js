@@ -14,7 +14,7 @@ class LightDarkMode extends Component {
     const {mode} = this.state
     const modeClassName = mode ? 'lightMode-container' : 'darkMode-container'
     const headingClassName = mode ? 'light-mode-heading' : 'dark-mode-heading'
-    const text = mode ? 'Light Mode' : 'Dark Mode'
+    const text = mode ? 'Dark Mode' : 'Light Mode'
 
     return (
       <div className="bg-container">
