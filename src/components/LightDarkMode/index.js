@@ -12,16 +12,15 @@ class LightDarkMode extends Component {
 
   render() {
     const {mode} = this.state
-    const modeClassName = mode ? 'lightMode-container' : 'darkMode-container'
-    const headingClassName = mode ? 'light-mode-heading' : 'dark-mode-heading'
-    const text = mode ? 'Dark Mode' : 'Light Mode'
+    const modeClassName = mode ? 'dark-mode' : 'light-mode'
+    const buttonText = mode ? 'Light Mode' : 'Dark Mode'
 
     return (
-      <div className="bg-container">
-        <div className={modeClassName}>
-          <h1 className={headingClassName}>Click To Change Mode</h1>
+      <div className="app-container">
+        <div className={`container ${modeClassName}`}>
+          <h1 className="heading">Click To Change Mode</h1>
           <button className="button" type="button" onClick={this.changeMode}>
-            {text}
+            {buttonText}
           </button>
         </div>
       </div>
